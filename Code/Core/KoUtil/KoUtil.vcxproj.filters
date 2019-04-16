@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="00. Container">
+      <UniqueIdentifier>{faf7662b-d9b7-47c0-8590-2773ad4b64df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{650769d8-0413-4c3c-bc94-5cbc392519f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Pointer">
+      <UniqueIdentifier>{5a787532-8a1a-4695-95b0-7a6ccd0889a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Pointer\ShaerdPtr">
+      <UniqueIdentifier>{18db1e94-be99-4352-bdd3-4c25c8066afb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Pointer\UniquePtr">
+      <UniqueIdentifier>{01b9b1fa-9dc6-4875-8b99-d2995ed43727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Pointer\WeakPtr">
+      <UniqueIdentifier>{5a5a3d14-e326-4695-8849-29cb072df267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. Container\Array">
+      <UniqueIdentifier>{541440a0-1dca-455d-b140-aa719cb56ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. Container\HashMap">
+      <UniqueIdentifier>{024ad448-8163-4c04-8b8d-e4452b743cd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. Container\HashSet">
+      <UniqueIdentifier>{59ba57f2-1986-4f2c-bbcf-8592920161ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. Container\Map">
+      <UniqueIdentifier>{22e32224-85c7-4f05-b671-73d3cf66ad91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. Container\Set">
+      <UniqueIdentifier>{62578082-0f6e-4b3c-88a3-42112a0a276f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00. Container\List">
+      <UniqueIdentifier>{2575762a-664a-457c-8453-890b87e25907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Math">
+      <UniqueIdentifier>{864c09da-7212-469c-baab-5171b9800243}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Time">
+      <UniqueIdentifier>{614b2961-e6de-4558-9462-54afd809f6bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="temp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\Typedef.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Functions.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Macros.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
