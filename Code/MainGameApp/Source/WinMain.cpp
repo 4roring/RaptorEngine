@@ -12,7 +12,11 @@
 #define MAX_LOADSTRING 100
 
 HWND hwnd;
-HINSTANCE hinst;                    
+HINSTANCE hinst;   
+
+uint32 g_width = 1280;
+uint32 g_height = 720;
+
 WCHAR szTitle[MAX_LOADSTRING];      
 WCHAR szWindowClass[MAX_LOADSTRING];
 
@@ -28,6 +32,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_MAINGAMEAPP, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
@@ -39,7 +45,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	msg.message = WM_NULL;
 
 	MainGame main_game;
-	main_game.BeginPlay(true, hwnd, false, 800, 600);
+	main_game.BeginPlay(true, hwnd, false, g_width, g_height);
 
     while (msg.message != WM_QUIT)
     {
@@ -61,19 +67,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
-    WNDCLASSEXW wcex;
+	WNDCLASSEXW wcex = {};
 
     wcex.cbSize = sizeof(WNDCLASSEX);
 
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
     wcex.lpfnWndProc    = WndProc;
-    wcex.cbClsExtra     = 0;
-    wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_MAINGAMEAPP));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-	wcex.lpszMenuName	= nullptr;
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -82,10 +85,13 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hinst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+   hinst = hInstance; 
+
+   RECT rc = { 0, 0, (long)g_width, (long)g_height };
+   AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, false);
 
    hwnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr);
 
    if (!hwnd)
    {
@@ -102,10 +108,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
-    case WM_COMMAND:
-        {
-           
-        }
+    case WM_KEYDOWN:
+		if (wParam == VK_ESCAPE)
+			DestroyWindow(hWnd);
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
