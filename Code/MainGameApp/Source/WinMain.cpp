@@ -1,11 +1,11 @@
 ﻿// MainGameApp.cpp : 응용 프로그램에 대한 진입점을 정의합니다.
 //
+#include "pch.h"
 
 #include "../targetver.h"
 
 #define WIN32_LEAN_AND_MEAN  
 
-#include "Main_Include.h"
 #include "WinMain.h"
 #include "MainGame.h"
 

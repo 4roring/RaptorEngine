@@ -1,6 +1,7 @@
-#include "Main_Include.h"
+#include "pch.h"
+
 #include "MainGame.h"
-#include "Device.h"
+#include "Engine/GraphicsDevice/DeviceDx11.h"
 
 MainGame::MainGame()
 {

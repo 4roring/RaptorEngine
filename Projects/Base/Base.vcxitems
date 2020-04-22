@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{bd055a93-c854-4ccc-9e54-de036edf0924}</ItemsProjectGuid>
+    <ItemsProjectName>Util</ItemsProjectName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Functions.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Macros.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Typedef.h" />
+  </ItemGroup>
+</Project>

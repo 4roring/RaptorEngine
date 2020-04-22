@@ -1,6 +1,6 @@
 ﻿﻿# Rapter Engine
 
-<img src="https://github.com/4roring/RaptorEngine/blob/master/Resources/Image/KK1_RapterEngine_Icon.jpg" width=256 height=256 />
+<img src="https://github.com/4roring/RaptorEngine/blob/master/Res/Res_Page/Image/KK1_RapterEngine_Icon.jpg" width=256 height=256 />
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 

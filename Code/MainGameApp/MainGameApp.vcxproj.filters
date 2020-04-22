@@ -31,8 +31,8 @@
     <ClInclude Include="targetver.h">
       <Filter>99. Default</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Main_Include.h">
-      <Filter>98. Headers</Filter>
+    <ClInclude Include="Header\pch.h">
+      <Filter>99. Default</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="Source\WinMain.cpp">
       <Filter>00. WinMain</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\pch.cpp">
+      <Filter>99. Default</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
