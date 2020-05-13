@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TimeManager">
+      <UniqueIdentifier>{eae37213-df08-4dfa-87a2-3abf159d6002}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -7,14 +7,17 @@
 namespace Raptor
 {
 
-class Device
+class DeviceDx11
 {
-public:
-	Device();
-	~Device();
+private:
+	DeviceDx11();
+	~DeviceDx11();
 
 public:
-	HRESULT InitDevice(bool is_vsync, HWND hwnd, bool is_full_mode, uint32 width, uint32 height);
+	static DeviceDx11* This();
+
+public:
+	HRESULT InitDevice(bool isSync, HWND hwnd, bool isFullMode, uint32 width, uint32 height);
 	HRESULT DestoryDeivce();
 
 public:
@@ -22,11 +25,11 @@ public:
 	ID3D11DeviceContext* GetDeviceContext() const;
 
 public:
-	void GetVideocardInfo(char* out_card_name, int& out_memory_size);
+	void GetVideocardInfo(_Out_ char* cardName, _Out_ int& memorySize);
 
 public:
-	void BeginScene(float r, float g, float b, float a);
-	void EndScene();
+	void BeginFrame(float r, float g, float b, float a);
+	void EndFrame();
 
 private:
 	HRESULT SetupDevice(bool is_vsync, bool is_full_mode);
@@ -38,20 +41,20 @@ private:
 	HRESULT SetupAllMatrix(float z_near, float z_far);
 
 private:
-	int video_card_memory_ = 0;
-	char video_card_description_[128] = {};
-	IDXGISwapChain* ptr_swap_chain_ = nullptr;
-	ID3D11Device* ptr_device_ = nullptr;
-	ID3D11DeviceContext* ptr_device_context_ = nullptr;
-	ID3D11RenderTargetView* ptr_render_target_view_ = nullptr;
-	ID3D11Texture2D* ptr_depth_stencil_buffer_ = nullptr;
-	ID3D11DepthStencilState* ptr_depth_stencil_state_ = nullptr;
-	ID3D11DepthStencilView* ptr_depth_stencil_view_ = nullptr;
-	ID3D11RasterizerState* ptr_raster_state_ = nullptr;
-	bool vsync_enable_ = false;
-	uint32 width_ = 0;
-	uint32 height_ = 0;
-	HWND hwnd_ = nullptr;
+	int _videoCardMemory = 0;
+	char _videoCardDesc[128] = {};
+	IDXGISwapChain* _swapChain = nullptr;
+	ID3D11Device* _device = nullptr;
+	ID3D11DeviceContext* _deviceContext = nullptr;
+	ID3D11RenderTargetView* _renderTargetView = nullptr;
+	ID3D11Texture2D* _depthStencilBuffer = nullptr;
+	ID3D11DepthStencilState* _depthStencilState = nullptr;
+	ID3D11DepthStencilView* _depthStencilView = nullptr;
+	ID3D11RasterizerState* _rasterState = nullptr;
+	bool _vsyncEnable = false;
+	uint32 _screenWidth = 0;
+	uint32 _screenHeight = 0;
+	HWND _hwnd = nullptr;
 };
 
 }

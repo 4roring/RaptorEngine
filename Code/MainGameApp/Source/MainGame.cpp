@@ -11,27 +11,32 @@ MainGame::~MainGame()
 {
 }
 
-void MainGame::BeginPlay(bool is_vsync, HWND hwnd, bool is_full_mode, uint32 width, uint32 height)
+void MainGame::Init(bool useVsync, HWND hwnd, bool isFullMode, uint32 width, uint32 height)
 {
-	ptr_device_ = new Raptor::Device;
-	ptr_device_->InitDevice(is_vsync, hwnd, is_full_mode, width, height);
+	_graphicDevice = Raptor::DeviceDx11::This();
+	_graphicDevice->InitDevice(useVsync, hwnd, isFullMode, width, height);
 }
 
-void MainGame::Run()
+void MainGame::BeginPlay(bool is_vsync, HWND hwnd, bool is_full_mode, uint32 width, uint32 height)
 {
-	Tick();
+
+}
+
+void MainGame::GameLoop()
+{
+	Tick(0.033f);
 	Render();
 }
 
-void MainGame::Tick()
+void MainGame::Tick(_In_ float deltaTime)
 {
 }
 
 void MainGame::Render()
 {
-	ptr_device_->BeginScene(0.f, 0.f, 1.f, 0.f);
+	_graphicDevice->BeginFrame(0.f, 0.f, 1.f, 0.f);
 
-	ptr_device_->EndScene();
+	_graphicDevice->EndFrame();
 }
 
 void MainGame::Release()

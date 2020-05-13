@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MainGameApp", "Code\MainGameApp\MainGameApp.vcxproj", "{C14F56F9-C9B9-4D8A-AB06-2BD7716E2BC7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GamePlayFramework", "Code\MainGameApp\MainGameApp.vcxproj", "{C14F56F9-C9B9-4D8A-AB06-2BD7716E2BC7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B4854F4B-C990-4442-9D0F-FCC829206568}"
 EndProject
@@ -12,6 +12,11 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Util", "Projects\Base\Base.vcxitems", "{BD055A93-C854-4CCC-9E54-DE036EDF0924}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Projects\Engine\Engine.vcxitems", "{E3749C8B-D7E2-4867-B928-9EB86CFCA891}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shader", "Shader", "{FC3B99EB-270F-4AD8-A833-6CB62EBC399D}"
+	ProjectSection(SolutionItems) = preProject
+		Res\Shader\Color.hlsl = Res\Shader\Color.hlsl
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

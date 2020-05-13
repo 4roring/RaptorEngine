@@ -18,5 +18,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Functions.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Macros.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Typedef.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)vector.cpp" />
   </ItemGroup>
 </Project>

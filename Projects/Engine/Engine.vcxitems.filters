@@ -12,6 +12,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceDx11.h">
       <Filter>GraphicsDevice</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Shape.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceBase.cpp">
@@ -20,5 +21,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceDx11.cpp">
       <Filter>GraphicsDevice</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Shape.cpp" />
   </ItemGroup>
 </Project>

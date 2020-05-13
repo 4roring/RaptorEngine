@@ -45,7 +45,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	msg.message = WM_NULL;
 
 	MainGame main_game;
-	main_game.BeginPlay(true, hwnd, false, g_width, g_height);
+	main_game.Init(true, hwnd, false, g_width, g_height);
 
     while (msg.message != WM_QUIT)
     {
@@ -57,7 +57,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 				DispatchMessage(&msg);
 			}
 		}
-		main_game.Run();
+		else
+		{
+			main_game.GameLoop();
+		}
 
 		Sleep(33);
     }

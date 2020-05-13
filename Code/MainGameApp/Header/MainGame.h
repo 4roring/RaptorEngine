@@ -2,7 +2,7 @@
 
 namespace Raptor
 {
-	class Device;
+	class DeviceDx11;
 }
 
 class MainGame
@@ -12,17 +12,18 @@ public:
 	~MainGame();
 
 public:
+	void Init(bool useVsync, HWND hwnd, bool isFullMode, uint32 width, uint32 height);
 	void BeginPlay(bool is_vsync, HWND hwnd, bool is_full_mode, uint32 width, uint32 height);
-	void Run();
+	void GameLoop();
 
 private:
-	void Tick();
+	void Tick(_In_ float deltaTime);
 	void Render();
 
 private:
 	void Release();
 	
 private:
-	Raptor::Device* ptr_device_ = nullptr;
+	Raptor::DeviceDx11* _graphicDevice = nullptr;
 };
 
