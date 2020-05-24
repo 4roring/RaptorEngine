@@ -13,6 +13,9 @@
       <Filter>GraphicsDevice</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Shape.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\Shader.h">
+      <Filter>GraphicsDevice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceBase.cpp">
@@ -22,5 +25,8 @@
       <Filter>GraphicsDevice</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Shape.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\Shader.cpp">
+      <Filter>GraphicsDevice</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

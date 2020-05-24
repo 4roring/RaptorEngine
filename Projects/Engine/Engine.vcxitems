@@ -16,11 +16,13 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceBase.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceDx11.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\Shader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Shape.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceDx11.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\Shader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Shape.cpp" />
   </ItemGroup>
 </Project>

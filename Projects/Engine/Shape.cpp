@@ -4,6 +4,8 @@
 #include "Engine/GraphicsDevice/DeviceDx11.h"
 
 Shape::Shape() :
+	_vertexBuffer(nullptr),
+	_indexBuffer(nullptr),
 	_vertexCount(0),
 	_indexCount(0)
 {
