@@ -12,10 +12,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceDx11.h">
       <Filter>GraphicsDevice</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Shape.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\Shader.h">
       <Filter>GraphicsDevice</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\Shape.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\CameraBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceBase.cpp">
@@ -24,9 +25,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\DeviceDx11.cpp">
       <Filter>GraphicsDevice</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Shape.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\GraphicsDevice\Shader.cpp">
       <Filter>GraphicsDevice</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\Shape.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Engine\CameraBase.cpp" />
   </ItemGroup>
 </Project>

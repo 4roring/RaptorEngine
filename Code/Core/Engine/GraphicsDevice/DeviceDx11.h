@@ -4,9 +4,6 @@
 #include <d3d11.h>
 #include "Util/Typedef.h"
 
-namespace Raptor
-{
-
 class DeviceDx11
 {
 private:
@@ -56,5 +53,3 @@ private:
 	uint32 _screenHeight = 0;
 	HWND _hwnd = nullptr;
 };
-
-}

@@ -1,11 +1,12 @@
 #include "pch.h"
+#include "Shader.h"
 
+#include <d3d11.h>
 #include <D3DX11async.h>
 #include "Engine/GraphicsDevice/DeviceDx11.h"
-#include "Shader.h"
 #include <fstream>
 
-Raptor::Shader::Shader() : 
+Shader::Shader() : 
 	_vertexShader(nullptr),
 	_pixelShader(nullptr),
 	_layout(nullptr),
@@ -13,27 +14,27 @@ Raptor::Shader::Shader() :
 {
 }
 
-Raptor::Shader::Shader(const Shader & other)
+Shader::Shader(const Shader & other)
 {
 }
 
-Raptor::Shader::~Shader()
+Shader::~Shader()
 {
 }
 
-bool Raptor::Shader::Init()
+bool Shader::Init()
 {
-	bool result = InitShader(TEXT("Color.hlsl"));
+	bool result = InitShader(TEXT("../../Res/Shader/Color.hlsl"));
 
 	return result;
 }
 
-void Raptor::Shader::Release()
+void Shader::Release()
 {
 	ReleaseShader();
 }
 
-bool Raptor::Shader::Render(const float4x4& matWorld, const float4x4& matView, const float4x4& matProj, int32 indexCount)
+bool Shader::Render(const float4x4& matWorld, const float4x4& matView, const float4x4& matProj, int32 indexCount)
 {
 	bool result = SetShaderParameters(matWorld, matView, matProj);
 
@@ -47,9 +48,9 @@ bool Raptor::Shader::Render(const float4x4& matWorld, const float4x4& matView, c
 	return true;
 }
 
-bool Raptor::Shader::InitShader(const TCHAR* shaderFileName)
+bool Shader::InitShader(const TCHAR* shaderFileName)
 {
-	ID3D11Device* device = Raptor::DeviceDx11::This()->GetDevice();
+	ID3D11Device* device = DeviceDx11::This()->GetDevice();
 
 	HRESULT hResult = E_FAIL;
 	ID3D10Blob* errorMessage = nullptr;
@@ -57,7 +58,7 @@ bool Raptor::Shader::InitShader(const TCHAR* shaderFileName)
 	ID3D10Blob*	pixelShaderBuffer = nullptr;
 	D3D11_INPUT_ELEMENT_DESC polygonLayout[2] = {};
 	uint32 numElements = 0;
-	D3D11_BUFFER_DESC matrixBufferDesc = {};
+	D3D11_BUFFER_DESC matrixBufferDesc;
 
 	// VertexShader
 	hResult = D3DX11CompileFromFile(
@@ -156,7 +157,7 @@ bool Raptor::Shader::InitShader(const TCHAR* shaderFileName)
 	pixelShaderBuffer = nullptr;
 
 	matrixBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
-	matrixBufferDesc.ByteWidth = sizeof(matrixBufferDesc);
+	matrixBufferDesc.ByteWidth = sizeof(MatrixBufferType);
 	matrixBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	matrixBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	matrixBufferDesc.MiscFlags = 0;
@@ -171,7 +172,7 @@ bool Raptor::Shader::InitShader(const TCHAR* shaderFileName)
 	return true;
 }
 
-void Raptor::Shader::ReleaseShader()
+void Shader::ReleaseShader()
 {
 	if (nullptr != _matrixBuffer)
 	{
@@ -199,7 +200,7 @@ void Raptor::Shader::ReleaseShader()
 }
 
 
-void Raptor::Shader::OutputShaderErrorMessage(_In_ ID3D10Blob* errorMessage, _In_ const TCHAR* shaderFileName)
+void Shader::OutputShaderErrorMessage(_In_ ID3D10Blob* errorMessage, _In_ const TCHAR* shaderFileName)
 {
 	char* compileErrors = (char*)(errorMessage->GetBufferPointer());
 	ulong bufferSize = errorMessage->GetBufferSize();
@@ -221,9 +222,9 @@ void Raptor::Shader::OutputShaderErrorMessage(_In_ ID3D10Blob* errorMessage, _In
 
 }
 
-bool Raptor::Shader::SetShaderParameters(float4x4 matWorld, float4x4 matView, float4x4 matProj)
+bool Shader::SetShaderParameters(float4x4 matWorld, float4x4 matView, float4x4 matProj)
 {
-	ID3D11DeviceContext* deviceContext = Raptor::DeviceDx11::This()->GetDeviceContext();
+	ID3D11DeviceContext* deviceContext = DeviceDx11::This()->GetDeviceContext();
 
 	HRESULT hResult = E_FAIL;
 	D3D11_MAPPED_SUBRESOURCE mappedResource = {};
@@ -253,9 +254,9 @@ bool Raptor::Shader::SetShaderParameters(float4x4 matWorld, float4x4 matView, fl
 	return true;
 }
 
-void Raptor::Shader::RenderShader(int32 indexCount)
+void Shader::RenderShader(int32 indexCount)
 {
-	ID3D11DeviceContext* deviceContext = Raptor::DeviceDx11::This()->GetDeviceContext();
+	ID3D11DeviceContext* deviceContext = DeviceDx11::This()->GetDeviceContext();
 
 	deviceContext->IASetInputLayout(_layout);
 

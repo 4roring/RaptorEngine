@@ -2,15 +2,13 @@
 
 #include "Engine/GraphicsDevice/DeviceDx11.h"
 
-using namespace Raptor;
-
 DeviceDx11::DeviceDx11()
 {
 }
 
 DeviceDx11::~DeviceDx11()
 {
-	
+
 }
 
 DeviceDx11* DeviceDx11::This()
@@ -244,7 +242,7 @@ HRESULT DeviceDx11::SetupDepthbuffer()
 
 	result = _device->CreateTexture2D(&depth_buffer_desc, NULL, &_depthStencilBuffer);
 	//assert(!FAILED(result) && "Failed to Create DepthBuffer");
-	
+
 	return S_OK;
 }
 

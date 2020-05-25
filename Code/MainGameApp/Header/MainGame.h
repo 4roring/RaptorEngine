@@ -1,9 +1,10 @@
 #pragma once
 
-namespace Raptor
-{
-	class DeviceDx11;
-}
+// 추후 엔진 초기화로 가야할 친구들
+class DeviceDx11;
+class CameraBase;
+class Shape;
+class Shader;
 
 class MainGame
 {
@@ -22,8 +23,12 @@ private:
 
 private:
 	void Release();
-	
+
+	// 추후 엔진 초기화로 가야할 친구들
 private:
-	Raptor::DeviceDx11* _graphicDevice = nullptr;
+	DeviceDx11* _graphicDevice = nullptr;
+	CameraBase* _camera = nullptr;
+	Shape*		_shape = nullptr;
+	Shader*		_shader = nullptr;
 };
 
