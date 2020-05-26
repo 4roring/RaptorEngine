@@ -1,6 +1,8 @@
 #include "pch.h"
+#include "DeviceDx11.h"
 
-#include "Engine/GraphicsDevice/DeviceDx11.h"
+#include <dxgi.h>
+#include <d3d11.h>
 
 DeviceDx11::DeviceDx11()
 {

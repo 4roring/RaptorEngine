@@ -1,21 +1,20 @@
 #pragma once
 
-#include <dxgi.h>
-#include <d3d11.h>
-#include "Util/Typedef.h"
+#include "DeviceBase.h"
+#include "Util/Util.h"
 
-class DeviceDx11
+class DeviceDx11 : public Device
 {
 private:
 	DeviceDx11();
-	~DeviceDx11();
+	virtual ~DeviceDx11() override;
 
 public:
 	static DeviceDx11* This();
 
 public:
-	HRESULT InitDevice(bool isSync, HWND hwnd, bool isFullMode, uint32 width, uint32 height);
-	HRESULT DestoryDeivce();
+	virtual bool InitDevice(bool isSync, HWND hwnd, bool isFullMode, uint32 width, uint32 height) override;
+	virtual bool DestoryDeivce() override;
 
 public:
 	ID3D11Device* GetDevice() const;
@@ -25,8 +24,8 @@ public:
 	void GetVideocardInfo(_Out_ char* cardName, _Out_ int& memorySize);
 
 public:
-	void BeginFrame(float r, float g, float b, float a);
-	void EndFrame();
+	virtual void BeginFrame(float r, float g, float b, float a) override;
+	virtual void EndFrame() override;
 
 private:
 	HRESULT SetupDevice(bool is_vsync, bool is_full_mode);

@@ -1,21 +1,35 @@
 #pragma once
 
-template<typename T>
-void Safe_Delete(T*& ptr)
+namespace Util
 {
-	if (nullptr != ptr)
+	template<typename T>
+	void SafeDelete(T*& ptr)
 	{
-		delete ptr;
-		ptr = nullptr;
+		if (nullptr != ptr)
+		{
+			delete ptr;
+			ptr = nullptr;
+		}
+	}
+
+	template<typename T>
+	void SafeRelease(T*& ptr)
+	{
+		if (nullptr != ptr)
+		{
+			ptr->Release();
+			ptr = nullptr;
+		}
+	}
+
+	template<typename T>
+	void SafeDeleteRelease(T*& ptr)
+	{
+		if (nullptr != ptr)
+		{
+			ptr->Release();
+			delete ptr;
+			ptr = nullptr;
+		}
 	}
 }
-
-//template<typename T>
-//void Safe_Release(T*& ptr)
-//{
-//	if (nullptr != ptr)
-//	{
-//		ptr->Release();
-//		ptr = nullptr;
-//	}
-//}

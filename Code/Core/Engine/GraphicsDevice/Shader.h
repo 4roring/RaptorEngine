@@ -1,8 +1,7 @@
 #pragma once
 
-#include <d3d11.h>
-#include "Util/Typedef.h"
-#include "vector.h"
+#include "Util/Util.h"
+#include "math/Vector.h"
 
 class Shader
 {

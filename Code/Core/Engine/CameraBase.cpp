@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "CameraBase.h"
 
-
 CameraBase::CameraBase() :
 	_position(0.f, 0.f, 0.f),
 	_rotation(0.f, 0.f, 0.f)
@@ -31,9 +30,9 @@ void CameraBase::Render()
 	float3 up = float3(0.f, 1.f, 0.f);
 	float3 forward = float3(0.f, 0.f, 1.f);
 
-	float yaw = _rotation.x * 0.0174532925f;
-	float pitch = _rotation.y * 0.0174532925f;
-	float roll = _rotation.z * 0.0174532925f;
+	float yaw = _rotation._x * 0.0174532925f;
+	float pitch = _rotation._y * 0.0174532925f;
+	float roll = _rotation._z * 0.0174532925f;
 
 	float4x4 matRot;
 	D3DXMatrixRotationYawPitchRoll(&matRot, yaw, pitch, roll);
