@@ -34,7 +34,7 @@ void Shader::Release()
 	ReleaseShader();
 }
 
-bool Shader::Render(const float4x4& matWorld, const float4x4& matView, const float4x4& matProj, int32 indexCount)
+bool Shader::Render(const Matrix4x4& matWorld, const Matrix4x4& matView, const Matrix4x4& matProj, int32 indexCount)
 {
 	bool result = SetShaderParameters(matWorld, matView, matProj);
 
@@ -222,7 +222,7 @@ void Shader::OutputShaderErrorMessage(_In_ ID3D10Blob* errorMessage, _In_ const 
 
 }
 
-bool Shader::SetShaderParameters(float4x4 matWorld, float4x4 matView, float4x4 matProj)
+bool Shader::SetShaderParameters(Matrix4x4 matWorld, Matrix4x4 matView, Matrix4x4 matProj)
 {
 	ID3D11DeviceContext* deviceContext = DeviceDx11::This()->GetDeviceContext();
 

@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <crtdbg.h>
 #include <iostream>
+#include "Util/Math/Math.h"
 #include "Util/Typedef.h"
 
 //#ifdef _DEBUG

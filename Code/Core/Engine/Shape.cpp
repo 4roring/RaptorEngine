@@ -67,14 +67,14 @@ bool Shape::InitializeBuffers()
 		return false;
 	}
 
-	vertices[0].position = float3(-1.f, -1.f, 0.f);
-	vertices[0].color = float4(0.f, 1.f, 0.f, 1.f);
+	vertices[0].position = Vector3(-1.f, -1.f, 0.f);
+	vertices[0].color = Color(0.f, 1.f, 0.f, 1.f);
 
-	vertices[1].position = float3(0.f, 1.f, 0.f);
-	vertices[1].color = float4(0.f, 1.f, 0.f, 1.f);
+	vertices[1].position = Vector3(0.f, 1.f, 0.f);
+	vertices[1].color = Color(0.f, 1.f, 0.f, 1.f);
 
-	vertices[2].position = float3(1.f, -1.f, 0.f);
-	vertices[2].color = float4(0.f, 1.f, 0.f, 1.f);
+	vertices[2].position = Vector3(1.f, -1.f, 0.f);
+	vertices[2].color = Color(0.f, 1.f, 0.f, 1.f);
 
 	indices[0] = 0;
 	indices[1] = 1;

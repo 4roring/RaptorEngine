@@ -1,6 +1,6 @@
 #pragma once
 
-#include "util/math/Vector.h"
+#include "Util/Math/Math.h"
 
 class CameraBase
 {
@@ -15,16 +15,16 @@ public:
 	virtual void Render();
 
 public:
-	void SetPosition(const float3& position);
-	void SetRotation(const float3& rotation);
+	void SetPosition(const Vector3& position);
+	void SetRotation(const Vector3& rotation);
 
 public:
-	const float3&	GetPosition();
-	const float3&	GetRotation();
-	const float4x4& GetViewMatrix();
+	const Vector3&	GetPosition();
+	const Vector3&	GetRotation();
+	const Matrix4x4& GetViewMatrix();
 
 private:
-	float3 _position;
-	float3 _rotation;
-	float4x4 _matView;
+	Vector3 _position;
+	Vector3 _rotation;
+	Matrix4x4 _matView;
 };

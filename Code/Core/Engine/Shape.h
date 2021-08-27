@@ -1,15 +1,15 @@
 #pragma once
 
 #include <d3d11.h>
-#include "vector.h"
+#include "Util/Math/Vector.h"
 
 class Shape
 {
 private:
 	struct VertexType
 	{
-		float3 position;
-		float4 color;
+		Vector3 position;
+		Color color;
 	};
 
 public:

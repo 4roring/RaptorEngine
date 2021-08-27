@@ -27,15 +27,14 @@ void CameraBase::Release()
 
 void CameraBase::Render()
 {
-	float3 up = float3(0.f, 1.f, 0.f);
-	float3 forward = float3(0.f, 0.f, 1.f);
+	Vector3 up = Vector3(0.f, 1.f, 0.f);
+	Vector3 forward = Vector3(0.f, 0.f, 1.f);
 
-	float yaw = _rotation._x * 0.0174532925f;
-	float pitch = _rotation._y * 0.0174532925f;
-	float roll = _rotation._z * 0.0174532925f;
+	//float yaw = _rotation.x * Math::toDegree;
+	//float pitch = _rotation.y * Math::toDegree;
+	//float roll = _rotation.z * Math::toDegree;
 
-	float4x4 matRot;
-	D3DXMatrixRotationYawPitchRoll(&matRot, yaw, pitch, roll);
+	Matrix4x4 matRot = Matrix4x4::MakeRotationMatrix(_rotation);
 
 	D3DXVec3TransformCoord(&forward, &forward, &matRot);
 	D3DXVec3TransformCoord(&up, &up, &matRot);
@@ -45,27 +44,27 @@ void CameraBase::Render()
 	D3DXMatrixLookAtLH(&_matView, &_position, &forward, &up);
 }
 
-void CameraBase::SetPosition(const float3 & position)
+void CameraBase::SetPosition(const Vector3 & position)
 {
 	_position = position;
 }
 
-void CameraBase::SetRotation(const float3 & rotation)
+void CameraBase::SetRotation(const Vector3 & rotation)
 {
 	_rotation = rotation;
 }
 
-const float3 & CameraBase::GetPosition()
+const Vector3 & CameraBase::GetPosition()
 {
 	return _position;
 }
 
-const float3 & CameraBase::GetRotation()
+const Vector3 & CameraBase::GetRotation()
 {
 	return _rotation;
 }
 
-const float4x4 & CameraBase::GetViewMatrix()
+const Matrix4x4& CameraBase::GetViewMatrix()
 {
 	return _matView;
 }

@@ -17,7 +17,9 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Functions.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Macros.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Math\Math.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Math\Matrix.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Math\Quat.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Math\Vector.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\PreDefine.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Typedef.h" />
@@ -25,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Math\Matrix.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Math\Quat.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\Code\Core\Util\Math\Vector.cpp" />
   </ItemGroup>
 </Project>

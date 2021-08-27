@@ -1,49 +1,101 @@
 #pragma once
 
-#define MYVECTOR
-#ifdef MYVECTOR
-struct float3
+struct Vector3
 {
 	union
 	{
 		struct  
 		{
-			float _x, _y, _z;
+			float x, y, z;
 		};
-		float _v[3];
+		float v[3];
 	};
 
-	float3();
-	float3(float x);
-	float3(float x, float y);
-	float3(float x, float y, float z);
-	float3& operator=(const float3& rhs);
+	Vector3();
+	Vector3(float X);
+	Vector3(float X, float Y);
+	Vector3(float X, float Y, float Z);
+	Vector3(const Vector3& rhs);
+	Vector3& operator=(const Vector3& rhs);
 
-	float3 operator+(const float3& rhs) const;
-	float3& operator+=(const float3& rhs);
+	Vector3 operator+(const Vector3& rhs) const;
+	Vector3& operator+=(const Vector3& rhs);
 
-	float3 operator-(const float3& rhs) const;
-	float3& operator-=(const float3& rhs);
+	Vector3 operator-(const Vector3& rhs) const;
+	Vector3& operator-=(const Vector3& rhs);
 
-	static float Dot(const float3 lhs, const float3 rhs);
-	static float3 Cross(const float3 lhs, const float3 rhs);
+	Vector3 operator*(float scale) const;
+	Vector3& operator*=(float scale);
 
-	static float3 Zero;
-	static float3 Right;
-	static float3 Up;
-	static float3 Forward;
-	static float3 NegativeX;
-	static float3 NegativeY;
-	static float3 NegativeZ;
+	Vector3 operator/(float scale) const;
+	Vector3& operator/=(float scale);
+
+	float Length();
+	float LengthSq();
+
+	bool IsNearlyZero(float tolerance) const;
+
+	bool operator==(const Vector3& rhs) const;
+
+	static float Distance(const Vector3& src, const Vector3& dst);
+	static float DistanceSq(const Vector3& src, const Vector3& dst);
+	static float Dot(const Vector3& lhs, const Vector3& rhs);
+	static Vector3 Cross(const Vector3& lhs, const Vector3& rhs);
+
+	static Vector3 Zero;
+	static Vector3 Right;
+	static Vector3 Up;
+	static Vector3 Forward;
+	static Vector3 NegativeX;
+	static Vector3 NegativeY;
+	static Vector3 NegativeZ;
 };
-#else
 
-#include <d3dx10math.h>
-typedef D3DXVECTOR3 float3;
-typedef D3DXVECTOR4 float4;
-typedef D3DXMATRIX float4x4;
+struct Vector4
+{
+	union
+	{
+		struct
+		{
+			float x, y, z, w;
+		};
 
-#endif
+		struct 
+		{
+			float r, g, b, a;
+		};
+		float v[4];
+	};
+
+	Vector4();
+	Vector4(float X);
+	Vector4(float X, float Y);
+	Vector4(float X, float Y, float Z);
+	Vector4(float X, float Y, float Z, float W);
+	Vector4(const Vector4& rhs);
+	Vector4& operator=(const Vector4& rhs);
+
+	Vector4 operator+(const Vector4& rhs) const;
+	Vector4& operator+=(const Vector4& rhs);
+
+	Vector4 operator-(const Vector4& rhs) const;
+	Vector4& operator-=(const Vector4& rhs);
+
+	Vector4 operator*(float scale) const;
+	Vector4& operator*=(float scale);
+
+	Vector4 operator/(float scale) const;
+	Vector4& operator/=(float scale);
+
+	bool IsNearlyZero(float tolerance) const;
+
+	bool operator==(const Vector4& rhs) const;
+
+	static Vector4 Zero;
+};
+
+typedef Vector4 Color;
+
 
 
 
